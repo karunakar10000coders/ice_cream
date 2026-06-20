@@ -40,12 +40,12 @@ const FLAVOR_PRODUCTS = [
   },
   {
     id: 'strawberry_velvet',
-    name: 'Strawberry Velvet',
+    name: 'Classic Dark Chocolate',
     category: 'classic',
     price: 3.50,
     rating: 4.9,
-    desc: 'Churned with sweet ripe organic strawberries and a hint of fresh cream cheese for extra richness.',
-    colorGradient: 'linear-gradient(135deg, #ffb3c6 0%, #ff80a0 100%)',
+    desc: 'A rich, traditional dark chocolate ice cream churned with organic Dutch-process cocoa.',
+    colorGradient: 'linear-gradient(135deg, #6f4e37 0%, #3d2314 100%)',
     badge: 'Classic',
     badgeClass: 'badge-classic'
   },
@@ -108,6 +108,14 @@ const PRICING = {
   cup: 1.00,
   scoop: 2.00,
   topping: 0.50
+};
+
+const FLAVOR_DISPLAY_NAMES = {
+  strawberry: 'Classic Dark Chocolate',
+  vanilla: 'Vanilla Bean',
+  chocolate: 'Midnight Chocolate',
+  mint: 'Mint Chip',
+  blueberry: 'Blueberry Swirl'
 };
 
 // --- 3. DOM Elements ---
@@ -376,7 +384,7 @@ function updateBuilderUI() {
   summaryContainer.textContent = `${vesselText} ($${containerCost.toFixed(2)})`;
   
   if (builderState.scoops.length > 0) {
-    const flavorNames = builderState.scoops.map(f => f.charAt(0).toUpperCase() + f.slice(1));
+    const flavorNames = builderState.scoops.map(f => FLAVOR_DISPLAY_NAMES[f] || f);
     summaryScoops.textContent = `${flavorNames.join(', ')} ($${scoopsCost.toFixed(2)})`;
   } else {
     summaryScoops.textContent = 'None';
@@ -432,7 +440,7 @@ addCustomCartBtn.addEventListener('click', () => {
   const total = containerCost + scoopsCost + toppingsCost;
   
   const vesselName = builderState.container === 'cone' ? 'Cone' : 'Cup';
-  const scoopNames = builderState.scoops.map(f => f.charAt(0).toUpperCase() + f.slice(1)).join(' + ');
+  const scoopNames = builderState.scoops.map(f => FLAVOR_DISPLAY_NAMES[f] || f).join(' + ');
   const toppingsString = builderState.toppings.length > 0 
     ? ` with ${builderState.toppings.map(t => t.charAt(0).toUpperCase() + t.slice(1)).join(', ')}`
     : '';

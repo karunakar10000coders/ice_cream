@@ -930,7 +930,7 @@ header.scrolled .nav-container {
 }
 
 .scoop-visual-item.strawberry-scoop {
-  background: radial-gradient(circle at 35% 35%, #ffb3c6, #ff4d6d);
+  background: radial-gradient(circle at 35% 35%, #704214, #3b220a);
 }
 
 .scoop-visual-item.vanilla-scoop {
@@ -1102,7 +1102,7 @@ header.scrolled .nav-container {
   border-radius: 50%;
 }
 
-.flavor-btn[data-flavor="strawberry"] .flavor-dot { background-color: var(--strawberry); }
+.flavor-btn[data-flavor="strawberry"] .flavor-dot { background-color: var(--chocolate); }
 .flavor-btn[data-flavor="vanilla"] .flavor-dot { background-color: var(--vanilla-dark); }
 .flavor-btn[data-flavor="chocolate"] .flavor-dot { background-color: var(--chocolate); }
 .flavor-btn[data-flavor="mint"] .flavor-dot { background-color: var(--mint); }
