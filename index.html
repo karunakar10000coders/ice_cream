@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scoop Paradise | Premium Handcrafted Ice Cream</title>
+  <meta name="description" content="Indulge in Scoop Paradise's premium, handcrafted, organic ice creams. Build your own customized scoop stacks online or order from our signature flavors.">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Floating Background Blobs -->
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header id="header">
+    <nav class="nav-container">
+      <a href="#" class="logo" id="logoLink">
+        <i class="fa-solid fa-ice-cream"></i> Scoop <span>Paradise</span>
+      </a>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Our Secret</a></li>
+        <li><a href="#menu" class="nav-link">Flavors</a></li>
+        <li><a href="#builder" class="nav-link">Scoop Artisan</a></li>
+        <li><a href="#story" class="nav-link">Our Story</a></li>
+      </ul>
+      
+      <div class="nav-actions">
+        <div class="nav-icon" id="cartToggleBtn" aria-label="Open Shopping Cart">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="cart-badge" id="cartCount">0</span>
+        </div>
+        <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars-staggered"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-badge">
+            <i class="fa-solid fa-award"></i> Award-Winning Taste
+          </div>
+          <h1 class="hero-title">Crafting Moments of <span>Pure Joy</span></h1>
+          <p class="hero-description">
+            Welcome to a paradise of gourmet, small-batch ice creams. Handcrafted daily with 100% organic local dairy and exotic ingredients.
+          </p>
+          <div class="hero-buttons">
+            <a href="#builder" class="btn btn-primary"><i class="fa-solid fa-wand-magic-sparkles"></i> Scoop Artisan</a>
+            <a href="#menu" class="btn btn-secondary">Explore Menu</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3 id="statFlavors">24+</h3>
+              <p>Unique Flavors</p>
+            </div>
+            <div class="stat-item">
+              <h3 id="statRating">4.9</h3>
+              <p>Customer Rating</p>
+            </div>
+            <div class="stat-item">
+              <h3 id="statLocations">100%</h3>
+              <p>Organic Dairy</p>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-wrapper reveal">
+          <div class="hero-image-bg"></div>
+          <img src="assets/hero_ice_cream.png" alt="Stacked delicious strawberry, chocolate, and mint ice cream scoops on a fresh waffle cone" class="hero-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features id-scroll" id="features">
+      <div class="section-header reveal">
+        <span class="section-subtitle">What Makes Us Special</span>
+        <h2 class="section-title">Pure Ingredients, Honest Craftsmanship</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-cow"></i>
+          </div>
+          <h3>100% Organic Milk</h3>
+          <p>Sourced exclusively from local, grass-fed family dairy farms committed to ethical and sustainable pasture practices.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3>Naturally Sweetened</h3>
+          <p>Zero high-fructose syrups, artificial dyes, or preservatives. Just pure cane sugar, maple syrup, and real fresh fruits.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon-wrapper">
+            <i class="fa-solid fa-mortar-pestle"></i>
+          </div>
+          <h3>Handcrafted Daily</h3>
+          <p>Made in micro-batches of under 5 gallons to ensure maximum creaminess, dense texture, and incredibly fresh flavor.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Menu / Flavor Explorer Section -->
+    <section class="menu-section id-scroll" id="menu">
+      <div class="menu-container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">Flavor Explorer</span>
+          <h2 class="section-title">Dive Into Our Signature Creations</h2>
+        </div>
+        
+        <div class="menu-filters reveal">
+          <button class="filter-btn active" data-filter="all">All Flavors</button>
+          <button class="filter-btn" data-filter="classic">Classics</button>
+          <button class="filter-btn" data-filter="signature">Signatures</button>
+          <button class="filter-btn" data-filter="vegan">Vegan / Plant-Based</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Scoop Artisan Builder Section -->
+    <section class="builder-section id-scroll" id="builder">
+      <div class="section-header reveal">
+        <span class="section-subtitle">Interactive Kitchen</span>
+        <h2 class="section-title">Become a Scoop Artisan</h2>
+      </div>
+      
+      <div class="builder-container reveal">
+        <!-- LEFT: Ice Cream Canvas Display -->
+        <div class="builder-canvas">
+          <div class="canvas-bg-glow"></div>
+          
+          <div class="icecream-visual">
+            <div class="topping-visuals" id="builderToppingVisuals">
+              <!-- Cherry / Syrup / Sprinkles will render here -->
+            </div>
+            
+            <div class="scoop-stack" id="builderScoopStack">
+              <!-- Dynamic scoops will stack here -->
+            </div>
+            
+            <div class="visual-container" id="builderContainerVisual">
+              <!-- Default Waffle Cone -->
+              <div class="cone-shape"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- RIGHT: Interactive Controls -->
+        <div class="builder-controls">
+          <!-- 1. Container Selection -->
+          <div class="control-group">
+            <h3 class="control-title">1. Select Your Vessel</h3>
+            <div class="control-options" id="containerOptions">
+              <button class="option-btn active" data-container="cone">Waffle Cone ($1.50)</button>
+              <button class="option-btn" data-container="cup">Artisan Cup ($1.00)</button>
+            </div>
+          </div>
+          
+          <!-- 2. Flavor Scoops Selection -->
+          <div class="control-group">
+            <h3 class="control-title">2. Add Scoops ($2.00 each, Max 3)</h3>
+            <div class="control-options">
+              <button class="option-btn flavor-btn" data-flavor="strawberry">
+                <span class="flavor-dot"></span> Strawberry
+              </button>
+              <button class="option-btn flavor-btn" data-flavor="vanilla">
+                <span class="flavor-dot"></span> Vanilla Bean
+              </button>
+              <button class="option-btn flavor-btn" data-flavor="chocolate">
+                <span class="flavor-dot"></span> Dark Chocolate
+              </button>
+              <button class="option-btn flavor-btn" data-flavor="mint">
+                <span class="flavor-dot"></span> Mint Chip
+              </button>
+              <button class="option-btn flavor-btn" data-flavor="blueberry">
+                <span class="flavor-dot"></span> Blueberry Swirl
+              </button>
+            </div>
+          </div>
+          
+          <!-- 3. Toppings Selection -->
+          <div class="control-group">
+            <h3 class="control-title">3. Add Toppings ($0.50 each)</h3>
+            <div class="control-options">
+              <button class="option-btn topping-btn" data-topping="sprinkles">
+                <i class="fa-solid fa-ellipsis"></i> Rainbow Sprinkles
+              </button>
+              <button class="option-btn topping-btn" data-topping="syrup">
+                <i class="fa-solid fa-droplet"></i> Hot Fudge
+              </button>
+              <button class="option-btn topping-btn" data-topping="cherry">
+                <i class="fa-solid fa-circle"></i> Cherry on Top
+              </button>
+            </div>
+          </div>
+          
+          <!-- 4. Summary & Pricing -->
+          <div class="builder-summary">
+            <div class="summary-row">
+              <span>Base Vessel:</span>
+              <span id="summaryContainer">Waffle Cone ($1.50)</span>
+            </div>
+            <div class="summary-row">
+              <span>Scoops Stacked:</span>
+              <span id="summaryScoops">None</span>
+            </div>
+            <div class="summary-row">
+              <span>Toppings:</span>
+              <span id="summaryToppings">None</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total Price:</span>
+              <span class="price" id="summaryTotal">$1.50</span>
+            </div>
+          </div>
+          
+          <div class="builder-actions">
+            <button class="btn btn-secondary" id="clearBuilderBtn"><i class="fa-solid fa-trash-can"></i> Reset</button>
+            <button class="btn btn-primary" id="addCustomCartBtn"><i class="fa-solid fa-cart-plus"></i> Add Stack to Cart</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About / Story Section -->
+    <section class="story-section id-scroll" id="story">
+      <div class="story-container">
+        <div class="story-image-wrapper reveal">
+          <img src="assets/artisan_crafting.png" alt="Chef carefully crafting artisan vanilla ice cream with fresh raspberry sauce" class="story-img">
+          <div class="story-card-overlay">
+            <h4>100% Handcrafted</h4>
+            <p>We blend tradition and passion in every single batch to create perfect velvety scoops.</p>
+          </div>
+        </div>
+        <div class="story-content reveal">
+          <span class="section-subtitle">Our Journey</span>
+          <h2 class="section-title">Born From Passion, Churned With Love</h2>
+          <p>
+            Scoop Paradise was founded in 2021 by a group of culinary enthusiasts who wanted to bring back the nostalgic experience of local scoop shops, but with an uncompromising gourmet twist.
+          </p>
+          <p>
+            We set out to create ice cream that is completely natural, highlighting local seasonal produce. Every scoop tells a story of local collaborations—from honey harvested by nearby beekeepers to vanilla pods sourced ethically from sustainable growers.
+          </p>
+          <div class="story-features">
+            <div class="story-feature-item">
+              <i class="fa-solid fa-circle-check"></i> No Artificial Additives or Dyes
+            </div>
+            <div class="story-feature-item">
+              <i class="fa-solid fa-circle-check"></i> Dairy-Free & Vegan Friendly Options
+            </div>
+            <div class="story-feature-item">
+              <i class="fa-solid fa-circle-check"></i> Eco-Friendly Biodegradable Cups & Cones
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials / Customer Reviews Section -->
+    <section class="reviews-section">
+      <div class="reviews-container">
+        <div class="section-header reveal">
+          <span class="section-subtitle">What Our Guests Say</span>
+          <h2 class="section-title">Spreading Smiles, One Scoop at a Time</h2>
+        </div>
+        
+        <div class="reviews-slider-wrapper reveal">
+          <div class="reviews-track" id="reviewsTrack">
+            <!-- Review 1 -->
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">
+                "The Lavender Honey flavor is an absolute dream! The creaminess is unmatched, and I love that they use organic ingredients from local farms."
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">EM</div>
+                <div class="reviewer-meta">
+                  <h4>Emily Miller</h4>
+                  <p>Verified Guest</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Review 2 -->
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">
+                "As someone who is lactose intolerant, finding high-quality vegan ice cream is tough. Scoop Paradise's Matcha Coconut is hands down the best I've ever had."
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">JD</div>
+                <div class="reviewer-meta">
+                  <h4>James Davis</h4>
+                  <p>Verified Guest</p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Review 3 -->
+            <div class="review-card">
+              <div class="review-stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <p class="review-text">
+                "The Scoop Artisan customizer is incredibly fun to play with online, and picking up my custom three-scoop stack cone was even better. Delicious!"
+              </p>
+              <div class="reviewer-info">
+                <div class="reviewer-avatar">SC</div>
+                <div class="reviewer-meta">
+                  <h4>Sophia Chen</h4>
+                  <p>Verified Guest</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="slider-controls">
+            <button class="slider-btn" id="prevReviewBtn" aria-label="Previous Review">
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button class="slider-btn" id="nextReviewBtn" aria-label="Next Review">
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3 class="footer-logo">Scoop <span>Paradise</span></h3>
+        <p>Crafting moments of pure, unfiltered joy. Handcrafted daily with sustainable practices and organic local ingredients.</p>
+        <div class="social-links">
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links-list">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Our Secret</a></li>
+          <li><a href="#menu">Flavors</a></li>
+          <li><a href="#builder">Scoop Artisan</a></li>
+          <li><a href="#story">Our Story</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-contact">
+        <h4 class="footer-heading">Visit Us</h4>
+        <div class="contact-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <p>123 Sweet Cream Lane,<br>Gourmet Valley, CA 90210</p>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-clock"></i>
+          <p>Mon - Thu: 12:00 PM - 10:00 PM<br>Fri - Sun: 11:00 AM - 11:00 PM</p>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <p>+1 (555) 726-6777</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scoop Paradise. All rights reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Shopping Cart Overlay Drawer -->
+  <div class="cart-overlay" id="cartOverlay">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3>
+        <button class="cart-close-btn" id="cartCloseBtn">&times;</button>
+      </div>
+      
+      <div class="cart-items-list" id="cartItemsList">
+        <!-- Cart Items populated via JS -->
+        <div class="empty-cart-message" id="emptyCartMessage">
+          <i class="fa-solid fa-ice-cream"></i>
+          <p>Your cart is empty.<br>Start adding tasty treats!</p>
+        </div>
+      </div>
+      
+      <div class="cart-footer">
+        <div class="cart-total-row">
+          <span>Subtotal:</span>
+          <span id="cartTotalSum">$0.00</span>
+        </div>
+        <button class="btn btn-primary cart-checkout-btn" id="checkoutBtn"><i class="fa-solid fa-credit-card"></i> Proceed to Checkout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local Script -->
+  <script src="app.js"></script>
+</body>
+</html>
